@@ -19,13 +19,10 @@ export default class App extends Component {
   }
 
   onChange = e => {
-    let stateOfClicks = this.state;
-    this.setState({
-      clickCounter: this.state.clickCounter + 1
-    });
-    console.log("click counter ===> ", this.state.clickCounter);
+    let stateOfClicks = this.state.color;
+
     function toggleColor() {
-      if (this.state.clickCounter % 2 === 0) {
+      if (stateOfClicks.clickCounter % 2 === 0) {
         this.setState({ color: "blue" });
         console.log(stateOfClicks.color, "blue");
       } else {
@@ -34,6 +31,11 @@ export default class App extends Component {
       }
     }
     toggleColor();
+
+    this.setState({
+      clickCounter: this.state.clickCounter + 1
+    });
+    console.log("click counter ===> ", this.state.clickCounter);
   };
 
   render() {

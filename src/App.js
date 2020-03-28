@@ -4,47 +4,49 @@ Create a <div> box with an onClick handle event that changes the background colo
 When the box is clicked, we want a clickCounter indicating how many times it was clicked. 
 We want the box color to toggle back to it's original color! (Hint: create a toggle function) */
 
-import React, { Component } from 'react'
-import './App.css';
-
+import React, { Component } from "react";
+import "./App.css";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      color: 'blue',
+      color: "blue",
       clickCounter: 0
-    }
+    };
+    this.onChange = this.onChange.bind(this);
   }
 
-  onChange = (e) => {
+  onChange = e => {
     this.setState({
-      clickCounter: this.state.clickCounter + 1,
-       function(){
-         if(this.state.clickCounter % 2 === 0) {
-           this.state.color = 'blue'
-           console.log(this.state.color, "blue")
-         } else {
-           this.state.color = 'orange'
-           console.log(this.state.color, 'orange')
-         }
-       }
-    })
-    console.log("click counter ===> ", this.state.clickCounter)
-  }
+      clickCounter: this.state.clickCounter + 1
+    });
+    console.log("click counter ===> ", this.state.clickCounter);
+    function toggleColor() {
+      if (this.state.clickCounter % 2 === 0) {
+        this.setState({ color: "blue" });
+        console.log(this.state.color, "blue");
+      } else {
+        this.setState({ color: "orange" });
+        console.log(this.state.color, "orange");
+      }
+    }
+    toggleColor();
+  };
 
   render() {
     return (
       <div className="App">
         <h1> Box color change {this.state.clickCounter} </h1>
-        <div              className="colorBox"
-        style={{backgroundColor: this.state.color}}
-        onClick={this.onChange}
+        <div
+          className="colorBox"
+          style={{ backgroundColor: this.state.color }}
+          onClick={this.onChange}
         >
-        <p>Click Here</p>
+          <p>Click Here</p>
         </div>
       </div>
-    )
+    );
   }
 }

@@ -19,6 +19,7 @@ export default class App extends Component {
   }
 
   onChange = e => {
+    let stateOfClicks = this.state;
     this.setState({
       clickCounter: this.state.clickCounter + 1
     });
@@ -26,10 +27,10 @@ export default class App extends Component {
     function toggleColor() {
       if (this.state.clickCounter % 2 === 0) {
         this.setState({ color: "blue" });
-        console.log(this.state.color, "blue");
+        console.log(stateOfClicks.color, "blue");
       } else {
         this.setState({ color: "orange" });
-        console.log(this.state.color, "orange");
+        console.log(stateOfClicks.color, "orange");
       }
     }
     toggleColor();
@@ -42,7 +43,9 @@ export default class App extends Component {
         <div
           className="colorBox"
           style={{ backgroundColor: this.state.color }}
-          onClick={() => {this.onChange()}}
+          onClick={() => {
+            this.onChange();
+          }}
         >
           <p>Click Here</p>
         </div>

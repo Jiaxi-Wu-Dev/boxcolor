@@ -20,11 +20,12 @@ export default class App extends Component {
 
   onChange = e => {
     let stateOfClicks = this.state.color;
-
+    //function to get the color to toggle
     function toggleColor() {
       if (stateOfClicks.clickCounter % 2 === 0) {
         this.setState({ color: "blue" });
         console.log(stateOfClicks.color, "blue");
+        // getting setState undefined error
       } else {
         this.setState({ color: "orange" });
         console.log(stateOfClicks.color, "orange");
@@ -41,6 +42,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* show counter on the DOM and console */}
         <h1> Box color change {this.state.clickCounter} </h1>
         <div
           className="colorBox"

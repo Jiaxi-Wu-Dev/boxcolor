@@ -42,9 +42,7 @@ export default class App extends Component {
         <div
           className="colorBox"
           style={{ backgroundColor: this.state.color }}
-          onClick={() => {
-            this.onChange();
-          }}
+          onClick={() => {this.onChange()}}
         >
           <p>Click Here</p>
         </div>

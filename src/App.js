@@ -24,8 +24,10 @@ export default class App extends Component {
        function(){
          if(this.state.clickCounter % 2 === 0) {
            this.state.color = 'blue'
+           console.log(this.state.color, "blue")
          } else {
            this.state.color = 'orange'
+           console.log(this.state.color, 'orange')
          }
        }
     })
